@@ -24,6 +24,7 @@
     <ProjectGuid>{ec8608c9-2f21-41c8-8c8d-962d1d536ee8}</ProjectGuid>
     <RootNamespace>ossystemprogramming</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>UseMutex_Critical_section</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

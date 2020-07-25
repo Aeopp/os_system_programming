@@ -1,0 +1,7 @@
+﻿  os_system_programming.cpp
+D:\os_system_programming\os_system_programming\os_system_programming\os_system_programming.cpp(11,18): warning C4584: 'c': 'a' 기본 클래스가 이미 'b'의 기본 클래스입니다.
+D:\os_system_programming\os_system_programming\os_system_programming\os_system_programming.cpp(3): message : 'a' 선언을 참조하십시오.
+D:\os_system_programming\os_system_programming\os_system_programming\os_system_programming.cpp(7): message : 'b' 선언을 참조하십시오.
+D:\os_system_programming\os_system_programming\os_system_programming\os_system_programming.cpp(21,5): warning C4101: '_b' :참조되지 않은 지역 변수입니다.
+D:\os_system_programming\os_system_programming\os_system_programming\os_system_programming.cpp(22,5): warning C4101: '_c' :참조되지 않은 지역 변수입니다.
+  os_system_programming.vcxproj -> D:\os_system_programming\os_system_programming\Debug\os_system_programming.exe

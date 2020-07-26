@@ -1,0 +1,6 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(453,5): warning MSB8004: Output 디렉터리가 슬래시로 끝나지 않습니다. Output 디렉터리의 적절한 평가를 허용하는 데 필요하므로 이 빌드 인스턴스에서 슬래시를 추가합니다.
+  CmdProject.cpp
+D:\os_system_programming\os_system_programming\CommandPrmpt_One\CmdProject.cpp(116,25): warning C4473: '_swprintf': 서식 문자열에 대한 인수가 충분하게 전달되지 않았습니다.
+D:\os_system_programming\os_system_programming\CommandPrmpt_One\CmdProject.cpp(116,25): message : 자리 표시자 및 해당 매개 변수에는 variadic 인수가 2개 필요하지만 1개가 제공되었습니다.
+D:\os_system_programming\os_system_programming\CommandPrmpt_One\CmdProject.cpp(116,25): message : 누락된 variadic 인수 2이(가) 서식 문자열 '%s'에 필요합니다.
+  CommandPrmpt_One.vcxproj -> D:\os_system_programming\os_system_programming\CommandPrmpt_One\$\CmdProject.exe

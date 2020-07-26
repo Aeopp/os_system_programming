@@ -1,117 +1,59 @@
 ﻿#include <stdio.h>
 #include <tchar.h>
-#include <time.h>
 #include <Windows.h>
 #include <process.h>
-#include <array>
 
+HANDLE hMutex;
+DWORD dwWaitResult;
 
-inline namespace
+void ProcessBaseCriticalSection()
 {
-	using uint32 = unsigned int;
+	dwWaitResult = WaitForSingleObject(hMutex, INFINITE);
 
-	static constexpr uint32 NUM_OF_CUSTOMER{ 50 };
-	static constexpr uint32 RANGE_MIN{ 10 };
-	static constexpr uint32 RANGE_MAX{ 30 - RANGE_MIN };
-	static constexpr uint32 TABLE_CNT{ 10 };
+	switch (dwWaitResult)
+	{
+	case WAIT_OBJECT_0:
+		_tprintf(_T("thread got mutex ! \n"));
+		break;
+	case WAIT_TIMEOUT:
+		_tprintf(_T("timer expired ! \n"));
+		return;
+	case WAIT_ABANDONED:
+		return;
+	default:
+		break;
+	};
 
-	static HANDLE hSemaphore;
-	static std::array<DWORD, NUM_OF_CUSTOMER> randTimeArr;
+	for (DWORD i = 0; i < 5; ++i)
+	{
+		_tprintf(_T("thread running ! \n"));
+		Sleep(10000);
+	}
+
+	ReleaseMutex(hMutex);
 };
 
-void TakeMeal(const DWORD time)
-{
-	WaitForSingleObject(hSemaphore, INFINITE);
-
-	_tprintf(_T("Enter Customer %d~ \n"), GetCurrentThreadId());
-
-	_tprintf(_T("Customer %d having launch~ \n"), GetCurrentThreadId());
-
-	Sleep(1000 * time);
-
-	ReleaseSemaphore(hSemaphore, 1, NULL);
-
-	_tprintf(_T("Out Customer %d~ \n\n"), GetCurrentThreadId());
-};
-
-uint32 WINAPI ThreadProc(LPVOID lpParam)
-{
-	TakeMeal(reinterpret_cast<DWORD>(lpParam));
-
-	return 0;
-};
 
 int _tmain(int argc, TCHAR* argv[])
 {
-	std::array<DWORD, NUM_OF_CUSTOMER> dwThreadIDs;
-	std::array<HANDLE, NUM_OF_CUSTOMER> hThreads;
-
-	srand((uint32)time(NULL));
-
-	for (int i = 0; i < NUM_OF_CUSTOMER; ++i)
+#if 0
+	hMutex = CreateMutex(
+		NULL, FALSE,
+		_T("NamedMutex"));
+#else 
+	hMutex = OpenMutex(
+		MUTEX_ALL_ACCESS,
+		FALSE,
+		_T("NamedMutex"));
+#endif
+	if (hMutex == NULL)
 	{
-		randTimeArr[i] = (DWORD)(
-			((double)rand() / (double)RAND_MAX)
-			* RANGE_MAX + RANGE_MIN);
+		_tprintf(_T("CreateMutex error : %d \n"), GetLastError());
+		return -1;
 	};
 
-	hSemaphore = CreateSemaphore
-	(
-		NULL,
-		TABLE_CNT,
-		TABLE_CNT,
-		NULL);
+	ProcessBaseCriticalSection();
 
-	if (hSemaphore == NULL)
-	{
-		_tprintf(_T("CreateSemaphore error : %d\n"), GetLastError());
-	};
-
-	for (int i = 0; i < NUM_OF_CUSTOMER; ++i)
-	{
-		hThreads[i] = (HANDLE)
-			_beginthreadex(
-				NULL, 0, ThreadProc, (void*)randTimeArr[i],
-				CREATE_SUSPENDED,
-				(unsigned*)&dwThreadIDs[i]);
-
-		if (hThreads[i] == NULL)
-		{
-			_tprintf(_T("Thread creation fault! \n"));
-			return -1; 
-		}
-	};
-
-	for (int i = 0; i < NUM_OF_CUSTOMER; ++i)
-	{
-		ResumeThread(hThreads[i]);
-	};
-
-	WaitForMultipleObjects(
-		NUM_OF_CUSTOMER, hThreads.data(), TRUE, INFINITE);
-
-	_tprintf(_T("=============END=================\n"));
-
-	for (int i = 0; i < NUM_OF_CUSTOMER; ++i)
-	{
-		CloseHandle(hThreads[i]);
-	};
-
-	CloseHandle(hSemaphore);
+	CloseHandle(hMutex);
 	return 0;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

@@ -1,0 +1,4 @@
+﻿  Event_Mutex.cpp
+D:\os_system_programming\os_system_programming\Event_Mutex\Event_Mutex.cpp(85,3): warning C4477: 'wprintf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'size_t'입니다.
+D:\os_system_programming\os_system_programming\Event_Mutex\Event_Mutex.cpp(85,3): message : 서식 문자열에서 '%zd'을(를) 사용하는 것이 좋습니다.
+  Event_Mutex.vcxproj -> D:\os_system_programming\os_system_programming\x64\Debug\Event_Mutex.exe

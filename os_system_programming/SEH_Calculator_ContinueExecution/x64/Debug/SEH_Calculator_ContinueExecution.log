@@ -1,0 +1,6 @@
+﻿  SEH_Calculator_ContinueExecution.cpp
+D:\os_system_programming\os_system_programming\SEH_Calculator_ContinueExecution\SEH_Calculator_ContinueExecution.cpp(53,10): warning C4002: 함수 같은 매크로 호출 '_T'에 대해 인수가 너무 많습니다.
+D:\os_system_programming\os_system_programming\SEH_Calculator_ContinueExecution\SEH_Calculator_ContinueExecution.cpp(53,10): warning C4473: 'wscanf': 서식 문자열에 대한 인수가 충분하게 전달되지 않았습니다.
+D:\os_system_programming\os_system_programming\SEH_Calculator_ContinueExecution\SEH_Calculator_ContinueExecution.cpp(53,10): message : 자리 표시자 및 해당 매개 변수에는 variadic 인수가 2개 필요하지만 0개가 제공되었습니다.
+D:\os_system_programming\os_system_programming\SEH_Calculator_ContinueExecution\SEH_Calculator_ContinueExecution.cpp(53,10): message : 누락된 variadic 인수 1이(가) 서식 문자열 '%d'에 필요합니다.
+  SEH_Calculator_ContinueExecution.vcxproj -> D:\os_system_programming\os_system_programming\x64\Debug\SEH_Calculator_ContinueExecution.exe

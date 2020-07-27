@@ -1,0 +1,3 @@
+﻿  SEH_Calcuator.cpp
+D:\os_system_programming\os_system_programming\SEH_Calcuator\SEH_Calcuator.cpp(44,18): warning C4101: 'result' :참조되지 않은 지역 변수입니다.
+  SEH_Calcuator.vcxproj -> D:\os_system_programming\os_system_programming\x64\Debug\SEH_Calcuator.exe

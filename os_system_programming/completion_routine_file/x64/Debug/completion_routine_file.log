@@ -1,0 +1,4 @@
+﻿  completion_routine_file.cpp
+C:\os_system_programming\os_system_programming\completion_routine_file\completion_routine_file.cpp(47,28): warning C4311: '형식 캐스트': 'HANDLE'에서 'DWORD'(으)로 포인터가 잘립니다.
+C:\os_system_programming\os_system_programming\completion_routine_file\completion_routine_file.cpp(47,28): warning C4302: '형식 캐스트': 'HANDLE'에서 'DWORD'(으)로 잘립니다.
+  completion_routine_file.vcxproj -> C:\os_system_programming\os_system_programming\x64\Debug\completion_routine_file.exe
